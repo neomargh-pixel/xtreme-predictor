@@ -1,17 +1,30 @@
-function agregarResultado() {
+let animales = [
+    ["🐎 Caballo", 98],
+    ["🐅 Tigre", 94],
+    ["🦁 León", 91],
+    ["🐓 Gallo", 88],
+    ["🐊 Caimán", 85],
+    ["🐍 Serpiente", 82],
+    ["🐒 Mono", 80],
+    ["🦅 Águila", 78],
+    ["🐘 Elefante", 75],
+    ["🐂 Toro", 72]
+];
 
-    let animal = prompt("Escribe el animal:");
-    let puntaje = prompt("Escribe el puntaje:");
-
+function cargarAnimales() {
     let tabla = document.getElementById("tablaResultados");
 
-    let fila = tabla.insertRow();
+    animales.forEach((animal, indice) => {
 
-    let celda1 = fila.insertCell(0);
-    let celda2 = fila.insertCell(1);
-    let celda3 = fila.insertCell(2);
+        let fila = tabla.insertRow();
 
-    celda1.innerHTML = tabla.rows.length - 1;
-    celda2.innerHTML = animal;
-    celda3.innerHTML = puntaje;
+        let celda1 = fila.insertCell(0);
+        let celda2 = fila.insertCell(1);
+        let celda3 = fila.insertCell(2);
+
+        celda1.innerHTML = indice + 1;
+        celda2.innerHTML = animal[0];
+        celda3.innerHTML = animal[1];
+
+    });
 }
