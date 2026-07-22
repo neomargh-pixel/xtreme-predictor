@@ -27,3 +27,13 @@ tabla.innerHTML+=`
 `;
 
 });
+function agregarResultado(){
+
+resultados.push({
+animal:"Caballo",
+numero:1
+});
+
+alert("Resultado agregado (solo para pruebas)");
+
+}
