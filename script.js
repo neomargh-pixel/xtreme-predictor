@@ -1,6 +1,5 @@
 function agregarResultado() {
-    let animal = prompt("Escribe el animal:");
-    let puntaje = prompt("Escribe el puntaje:");
+    alert("Entró a la función");
 
     let tabla = document.getElementById("tablaResultados");
 
@@ -11,6 +10,6 @@ function agregarResultado() {
     let celda3 = fila.insertCell(2);
 
     celda1.innerHTML = tabla.rows.length - 1;
-    celda2.innerHTML = animal;
-    celda3.innerHTML = puntaje;
+    celda2.innerHTML = "🐕 Perro";
+    celda3.innerHTML = "80";
 }
