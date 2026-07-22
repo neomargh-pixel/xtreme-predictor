@@ -27,4 +27,3 @@ function cargarAnimales() {
         celda3.innerHTML = animales[i][1];
     }
 }
-    
