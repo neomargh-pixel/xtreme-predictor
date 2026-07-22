@@ -14,7 +14,7 @@ let animales = [
 function cargarAnimales() {
     let tabla = document.getElementById("tablaResultados");
 
-    animales.forEach((animal, indice) => {
+    for (let i = 0; i < animales.length; i++) {
 
         let fila = tabla.insertRow();
 
@@ -22,9 +22,9 @@ function cargarAnimales() {
         let celda2 = fila.insertCell(1);
         let celda3 = fila.insertCell(2);
 
-        celda1.innerHTML = indice + 1;
-        celda2.innerHTML = animal[0];
-        celda3.innerHTML = animal[1];
-
-    });
+        celda1.innerHTML = tabla.rows.length - 1;
+        celda2.innerHTML = animales[i][0];
+        celda3.innerHTML = animales[i][1];
+    }
 }
+    
