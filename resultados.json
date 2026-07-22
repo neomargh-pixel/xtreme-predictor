@@ -1,8 +1,9 @@
 [
-  {
-    "fecha": "2026-07-22",
-    "loteria": "Guacharo Activo",
-    "animal": "Caballo",
-    "numero": 1
-  }
+  {"animal":"Caballo","numero":1},
+  {"animal":"Tigre","numero":17},
+  {"animal":"León","numero":8},
+  {"animal":"Gallo","numero":5},
+  {"animal":"Perro","numero":12},
+  {"animal":"Caballo","numero":1},
+  {"animal":"León","numero":8}
 ]
