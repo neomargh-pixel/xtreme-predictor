@@ -21,3 +21,19 @@ function cargarAnimales() {
 
 // Carga la tabla automáticamente al abrir la página
 window.onload = cargarAnimales;
+let historial = [];
+
+function guardarResultado() {
+    let resultado = document.getElementById("resultado").value;
+
+    if (resultado.trim() === "") {
+        alert("Escribe un animal");
+        return;
+    }
+
+    historial.push(resultado);
+
+    alert("Resultado guardado: " + resultado);
+
+    document.getElementById("resultado").value = "";
+}
