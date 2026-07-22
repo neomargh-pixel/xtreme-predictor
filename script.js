@@ -33,3 +33,8 @@ function actualizarRanking(){
 document.querySelector("button").addEventListener("click",actualizarRanking);
 
 actualizarRanking();
+fetch("resultados.json")
+  .then(r => r.json())
+  .then(datos => {
+    console.log("Resultados cargados:", datos);
+  });
