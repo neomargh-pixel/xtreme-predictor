@@ -1,32 +1,26 @@
-
 window.onload = function() {
+
+    let ranking = generarPronostico();
 
     let tabla = document.getElementById("tablaResultados");
 
-    tabla.innerHTML += `
-    <tr>
-    <td>1</td>
-    <td>🐎 Caballo</td>
-    <td>95</td>
-    <td>5 días sin salir</td>
-    </tr>
+    ranking.slice(0,10).forEach((item,index)=>{
 
-    <tr>
-    <td>2</td>
-    <td>🐅 Tigre</td>
-    <td>90</td>
-    <td>2 días sin salir</td>
-    </tr>
+        let fila = tabla.insertRow();
 
-    <tr>
-    <td>3</td>
-    <td>🦁 León</td>
-    <td>85</td>
-    <td>8 días sin salir</td>
-    </tr>
-    `;
+        fila.insertCell(0).innerHTML = index + 1;
+        fila.insertCell(1).innerHTML = item.animal;
+        fila.insertCell(2).innerHTML = item.puntaje;
+        fila.insertCell(3).innerHTML = item.dias + " días sin salir";
 
-    document.getElementById("destacado").innerHTML = "🐎 Caballo";
-    document.getElementById("atrasado").innerHTML = "🐘 Elefante";
-    document.getElementById("tendencia").innerHTML = "Calculando";
+    });
+
+    document.getElementById("destacado").innerHTML = ranking[0].animal;
+
+    let mayorAtraso = [...ranking].sort((a,b)=>b.dias-a.dias);
+
+    document.getElementById("atrasado").innerHTML = mayorAtraso[0].animal;
+
+    document.getElementById("tendencia").innerHTML = "Analizando resultados";
+
 };
