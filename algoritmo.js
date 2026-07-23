@@ -1,23 +1,25 @@
-function calcularRanking() {
+function generarPronostico() {
+
+    let ranking = [];
 
     for (let i = 0; i < animales.length; i++) {
 
-        let nombre = animales[i][0];
+        let animal = animales[i];
 
-        let veces = 0;
+        let dato = resultados.find(r => r.animal === animal);
 
-        for (let j = 0; j < resultados.length; j++) {
+        let dias = dato ? dato.dias : 0;
 
-            if (resultados[j].animal === nombre) {
-                veces++;
-            }
+        let puntaje = dias * 5 + Math.floor(Math.random() * 20);
 
-        }
-
-        animales[i][1] = veces;
-
+        ranking.push({
+            animal: animal,
+            dias: dias,
+            puntaje: puntaje
+        });
     }
 
-    animales.sort((a, b) => b[1] - a[1]);
+    ranking.sort((a,b)=> b.puntaje - a.puntaje);
 
+    return ranking;
 }
