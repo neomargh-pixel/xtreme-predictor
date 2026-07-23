@@ -1,4 +1,4 @@
-const resultados = [
+var resultados = [
     {animal:"🐎 Caballo", dias:5},
     {animal:"🐅 Tigre", dias:2},
     {animal:"🦁 León", dias:8},
