@@ -11,69 +11,49 @@
 
 <header class="topbar">
     <h1>🚀 XTREME Predictor</h1>
-    <p>Análisis Inteligente de Animalitos</p>
+    <p>Pronóstico Estadístico de Animalitos</p>
 </header>
-
-<div class="banner">
-    <div class="overlay">
-        <h2>🐎 Bienvenido</h2>
-        <p>Selecciona una lotería y consulta el análisis.</p>
-    </div>
-</div>
 
 <main>
 
 <div class="card">
-
-<h2>🎯 Seleccionar Lotería</h2>
-
-<select>
-<input type="text" id="resultado" placeholder="Ejemplo: 🐎 Caballo">
-<button onclick="guardarResultado()">Guardar resultado</button>
-<option>🦉 Guácharo Activo</option>
-<option>🐓 La Granjita</option>
-<option>🌴 Selva Plus</option>
-<option>⭐ Granja Millonaria</option>
-</select>
-
+<h2>📅 Pronóstico de Hoy</h2>
+<p><strong>Última actualización:</strong> Hoy</p>
 </div>
 
 <div class="card">
-
-<h2>🐎 Animales destacados</h2>
-
-<div class="animals">
-
-🐎 🐅 🦁 🐂 🐊 🐍 🐒 🐓 🦅 🐘
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>📊 Ranking del algoritmo</h2>
+<h2>🔥 Top 10</h2>
 
 <table id="tablaResultados">
-
 <tr>
-
 <th>#</th>
-
 <th>Animal</th>
-
 <th>Puntaje</th>
-
+<th>Estado</th>
 </tr>
-
 </table>
 
 </div>
 
+<div class="card">
+<h2>📊 Estadísticas</h2>
+
+<p>🐎 Más destacado: <span id="destacado">-</span></p>
+<p>⏳ Mayor atraso: <span id="atrasado">-</span></p>
+<p>📈 Tendencia: <span id="tendencia">-</span></p>
+
+</div>
+
+<div class="card">
+<h2>💎 Área Premium</h2>
+<p>Disponible para suscriptores.</p>
+</div>
+
 </main>
+
+<script src="animales.js"></script>
 <script src="resultados.js"></script>
 <script src="algoritmo.js"></script>
-<script src="animales.js"></script>
 <script src="script.js"></script>
 
 </body>
