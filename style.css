@@ -1,123 +1,58 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-url("https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1400&q=80");
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-color:#fff;
+body {
+    margin: 0;
+    background: #111827;
+    color: white;
 }
 
-.topbar{
-text-align:center;
-padding:25px;
-background:rgba(0,0,0,.55);
-backdrop-filter:blur(12px);
-border-bottom:3px solid #00ff88;
+.topbar {
+    text-align: center;
+    padding: 25px;
+    background: #1f2937;
 }
 
-.topbar h1{
-font-size:34px;
-color:#00ff88;
+.topbar h1 {
+    margin: 0;
+    font-size: 32px;
 }
 
-.topbar p{
-color:#ddd;
-margin-top:8px;
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
 }
 
-.banner{
-height:220px;
-display:flex;
-justify-content:center;
-align-items:center;
-margin:20px;
-border-radius:20px;
-background:rgba(0,0,0,.45);
-backdrop-filter:blur(10px);
-border:2px solid #00ff88;
+.card {
+    background: #1f2937;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.overlay{
-text-align:center;
+h2 {
+    color: #facc15;
 }
 
-.overlay h2{
-font-size:34px;
-color:#00ff88;
-margin-bottom:10px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-main{
-padding:15px;
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #374151;
 }
 
-.card{
-background:rgba(25,25,25,.60);
-backdrop-filter:blur(15px);
-border:1px solid rgba(0,255,136,.45);
-border-radius:18px;
-padding:20px;
-margin-bottom:20px;
-box-shadow:0 0 20px rgba(0,255,136,.30);
+th {
+    background: #374151;
 }
 
-.card h2{
-color:#00ff88;
-margin-bottom:15px;
-}
-
-.animals{
-font-size:38px;
-text-align:center;
-line-height:65px;
-}
-
-select{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:none;
-font-size:18px;
-background:#111;
-color:white;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:#00ff88;
-color:#000;
-padding:12px;
-}
-
-td{
-padding:12px;
-border-bottom:1px solid rgba(255,255,255,.15);
-text-align:center;
-}
-
-button{
-width:100%;
-padding:16px;
-font-size:20px;
-border:none;
-border-radius:15px;
-background:#00ff88;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-transform:scale(1.03);
-transition:.3s;
+span {
+    color: #22c55e;
+    font-weight: bold;
 }
