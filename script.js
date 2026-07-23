@@ -1,40 +1,28 @@
-function cargarAnimales() {
-    calcularRanking();
+window.onload = function() {
+
+    let ranking = generarPronostico();
+
     let tabla = document.getElementById("tablaResultados");
 
-    // Borra las filas anteriores y deja solo el encabezado
-    tabla.innerHTML = `
-        <tr>
-            <th>#</th>
-            <th>Animal</th>
-            <th>Puntaje</th>
-        </tr>
-    `;
+    ranking.slice(0,10).forEach((item,index)=>{
 
-    for (let i = 0; i < animales.length; i++) {
         let fila = tabla.insertRow();
 
-        fila.insertCell(0).innerHTML = i + 1;
-        fila.insertCell(1).innerHTML = animales[i][0];
-        fila.insertCell(2).innerHTML = animales[i][1];
-    }
-}
+        fila.insertCell(0).innerHTML = index + 1;
+        fila.insertCell(1).innerHTML = item.animal;
+        fila.insertCell(2).innerHTML = item.puntaje;
+        fila.insertCell(3).innerHTML = item.dias + " días sin salir";
 
-// Carga la tabla automáticamente al abrir la página
-window.onload = cargarAnimales;
-let historial = [];
+    });
 
-function guardarResultado() {
-    let resultado = document.getElementById("resultado").value;
 
-    if (resultado.trim() === "") {
-        alert("Escribe un animal");
-        return;
-    }
+    document.getElementById("destacado").innerHTML =
+    ranking[0].animal;
 
-    historial.push(resultado);
+    document.getElementById("atrasado").innerHTML =
+    ranking.sort((a,b)=>b.dias-a.dias)[0].animal;
 
-    alert("Resultado guardado: " + resultado);
+    document.getElementById("tendencia").innerHTML =
+    "Analizando datos";
 
-    document.getElementById("resultado").value = "";
-}
+};
