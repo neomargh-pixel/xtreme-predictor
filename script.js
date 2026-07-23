@@ -1,4 +1,5 @@
 function cargarAnimales() {
+    calcularRanking();
     let tabla = document.getElementById("tablaResultados");
 
     // Borra las filas anteriores y deja solo el encabezado
