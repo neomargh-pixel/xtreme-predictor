@@ -1,4 +1,4 @@
-const animales = [
+var animales = [
 "🐎 Caballo",
 "🐅 Tigre",
 "🦁 León",
