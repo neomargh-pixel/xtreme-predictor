@@ -24,3 +24,21 @@ window.onload = function() {
     document.getElementById("tendencia").innerHTML = "Analizando resultados";
 
 };
+function agregarResultado(){
+
+    let animal = document.getElementById("nuevoAnimal").value;
+
+    if(animal == ""){
+        alert("Escribe un animal");
+        return;
+    }
+
+    resultados.push({
+        fecha: new Date().toISOString().slice(0,10),
+        animal: animal
+    });
+
+    alert("Resultado guardado");
+
+    location.reload();
+}
