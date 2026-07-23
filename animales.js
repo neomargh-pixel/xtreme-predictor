@@ -1,12 +1,7 @@
-const animales = [
-  ["🐎 Caballo", 98],
-  ["🐅 Tigre", 94],
-  ["🦁 León", 91],
-  ["🐓 Gallo", 88],
-  ["🐊 Caimán", 85],
-  ["🐍 Serpiente", 82],
-  ["🐒 Mono", 80],
-  ["🦅 Águila", 78],
-  ["🐘 Elefante", 75],
-  ["🐂 Toro", 72]
+const resultados = [
+  { fecha: "2026-07-23", loteria: "Guacharo Activo", animal: "🐎 Caballo" },
+  { fecha: "2026-07-23", loteria: "La Granjita", animal: "🐊 Caimán" },
+  { fecha: "2026-07-22", loteria: "Guacharo Activo", animal: "🐍 Serpiente" },
+  { fecha: "2026-07-22", loteria: "La Granjita", animal: "🐅 Tigre" },
+  { fecha: "2026-07-21", loteria: "Guacharo Activo", animal: "🦁 León" }
 ];
