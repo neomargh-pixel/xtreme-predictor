@@ -4,7 +4,15 @@ function calcularRanking() {
 
         let nombre = animales[i][0];
 
-        let veces = resultados.filter(r => r.animal === nombre).length;
+        let veces = 0;
+
+        for (let j = 0; j < resultados.length; j++) {
+
+            if (resultados[j].animal === nombre) {
+                veces++;
+            }
+
+        }
 
         animales[i][1] = veces;
 
