@@ -1,53 +1,44 @@
-function generarPronostico() {
+function analizarResultados() {
 
-    let ranking = [];
+    let estadisticas = [];
 
     animales.forEach(animal => {
 
-        let apariciones = resultados.filter(
-            r => r.animal === animal
-        ).length;
+        let salidas = resultados.filter(r => r.animal === animal).length;
 
-
-        let ultimo = resultados.find(
-            r => r.animal === animal
-        );
-
+        let ultimaSalida = resultados
+            .filter(r => r.animal === animal)
+            .sort((a,b)=> new Date(b.fecha)-new Date(a.fecha))[0];
 
         let diasSinSalir = 30;
 
-        if (ultimo) {
-
-            let fechaUltima = new Date(ultimo.fecha);
+        if (ultimaSalida) {
+            let fecha = new Date(ultimaSalida.fecha);
             let hoy = new Date();
-
             diasSinSalir = Math.floor(
-                (hoy - fechaUltima) / (1000 * 60 * 60 * 24)
+                (hoy - fecha) / (1000 * 60 * 60 * 24)
             );
-
         }
 
-
-        let puntaje = 
-            (apariciones * 10) + 
-            (diasSinSalir * 2);
-
-
-        ranking.push({
-
+        estadisticas.push({
             animal: animal,
-            veces: apariciones,
-            dias: diasSinSalir,
-            puntaje: puntaje
-
+            salidas: salidas,
+            dias: diasSinSalir
         });
 
     });
 
 
-    ranking.sort((a,b)=> b.puntaje - a.puntaje);
+    estadisticas.sort((a,b)=>{
+
+        if(b.salidas !== a.salidas){
+            return b.salidas - a.salidas;
+        }
+
+        return b.dias - a.dias;
+
+    });
 
 
-    return ranking;
-
+    return estadisticas;
 }
