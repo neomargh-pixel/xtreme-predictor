@@ -1,36 +1,35 @@
-window.onload = function(){
+async function cargarResultados() {
 
-    let datos = analizarResultados();
+    const respuesta = await fetch("resultados.json");
+    const datos = await respuesta.json();
 
-    let top = document.getElementById("top10");
-    let pronostico = document.getElementById("pronostico");
-    let estadistica = document.getElementById("estadistica");
+    resultados.length = 0;
 
+    datos.forEach(item => resultados.push(item));
 
-    top.innerHTML = "";
+    let analisis = analizarResultados();
 
-    datos.slice(0,10).forEach((item, index)=>{
+    document.getElementById("pronostico").innerHTML =
+        "🔥 Mayor tendencia: " + analisis[0].animal;
 
-        top.innerHTML += `
-        <p>
-        ${index+1}. ${item.animal}
-        - Salió: ${item.salidas} veces
-        - Días sin salir: ${item.dias}
-        </p>
-        `;
+    document.getElementById("estadistica").innerHTML =
+        "Animales analizados: " + analisis.length;
+
+    let tabla = "";
+
+    analisis.slice(0,10).forEach((a,i)=>{
+
+        tabla += `
+        <tr>
+            <td>${i+1}. ${a.animal}</td>
+            <td>${a.salidas}</td>
+            <td>${a.dias}</td>
+        </tr>`;
 
     });
 
+    document.getElementById("top10").innerHTML = tabla;
 
-    if(datos.length > 0){
+}
 
-        pronostico.innerHTML =
-        "🔥 Mayor tendencia: " + datos[0].animal;
-
-    }
-
-
-    estadistica.innerHTML =
-    "Animales analizados: " + datos.length;
-
-};
+cargarResultados();
