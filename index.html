@@ -9,38 +9,44 @@
 
 <body>
 
-<header>
-<h1>🔥 XTREME Predictor</h1>
-<p>Estadísticas de Animalitos</p>
+<header class="topbar">
+    <h1>🔥 XTREME Predictor</h1>
+    <p>Pronóstico y estadísticas de animalitos</p>
 </header>
 
-<section>
+<main>
+
+<div class="card">
 <h2>📅 Pronóstico de Hoy</h2>
-<div id="pronostico">
-Cargando pronóstico...
+<div id="pronostico"></div>
 </div>
-</section>
 
-<section>
+<div class="card">
 <h2>🏆 Top 10</h2>
-<div id="top10">
-Cargando estadísticas...
+<table>
+<thead>
+<tr>
+<th>Animal</th>
+<th>Salidas</th>
+<th>Días sin salir</th>
+</tr>
+</thead>
+<tbody id="top10">
+</tbody>
+</table>
 </div>
-</section>
 
-<section>
+<div class="card">
 <h2>📊 Estadística</h2>
-<div id="estadistica">
-Cargando datos...
+<div id="estadistica"></div>
 </div>
-</section>
 
-<section class="premium">
+<div class="card">
 <h2>💎 Área Premium</h2>
-<p>Acceso a pronósticos avanzados y análisis.</p>
-<button>Suscribirse</button>
-</section>
+<p>Acceso a análisis avanzados.</p>
+</div>
 
+</main>
 
 <script src="animales.js"></script>
 <script src="resultados.js"></script>
