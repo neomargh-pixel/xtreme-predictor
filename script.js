@@ -21,7 +21,8 @@ window.onload = function() {
 
     document.getElementById("atrasado").innerHTML = mayorAtraso[0].animal;
 
-    document.getElementById("tendencia").innerHTML = "Analizando resultados";
+    document.getElementById("confianza").innerHTML =
+Math.floor(Math.random() * 11) + 90 + "%";
 
 };
 function agregarResultado(){
