@@ -1,35 +1,41 @@
 async function cargarResultados() {
+    try {
+        const respuesta = await fetch("resultados.json");
+        const datos = await respuesta.json();
 
-    const respuesta = await fetch("resultados.json");
-    const datos = await respuesta.json();
+        resultados.length = 0;
+        datos.forEach(item => resultados.push(item));
 
-    resultados.length = 0;
+        const analisis = analizarResultados();
 
-    datos.forEach(item => resultados.push(item));
+        if (analisis.length === 0) {
+            document.getElementById("pronostico").innerHTML = "No hay datos.";
+            return;
+        }
 
-    let analisis = analizarResultados();
+        document.getElementById("pronostico").innerHTML =
+            "🔥 Mayor tendencia: " + analisis[0].animal;
 
-    document.getElementById("pronostico").innerHTML =
-        "🔥 Mayor tendencia: " + analisis[0].animal;
+        document.getElementById("estadistica").innerHTML =
+            "Animales analizados: " + analisis.length;
 
-    document.getElementById("estadistica").innerHTML =
-        "Animales analizados: " + analisis.length;
+        let tabla = "";
 
-    let tabla = "";
+        analisis.slice(0, 10).forEach((a, i) => {
+            tabla += `
+            <tr>
+                <td>${i + 1}. ${a.animal}</td>
+                <td>${a.salidas}</td>
+                <td>${a.dias}</td>
+            </tr>`;
+        });
 
-    analisis.slice(0,10).forEach((a,i)=>{
+        document.getElementById("top10").innerHTML = tabla;
 
-        tabla += `
-        <tr>
-            <td>${i+1}. ${a.animal}</td>
-            <td>${a.salidas}</td>
-            <td>${a.dias}</td>
-        </tr>`;
-
-    });
-
-    document.getElementById("top10").innerHTML = tabla;
-
+    } catch (error) {
+        document.getElementById("pronostico").innerHTML =
+            "❌ Error: " + error.message;
+    }
 }
 
-cargarResultados();
+window.onload = cargarResultados;
