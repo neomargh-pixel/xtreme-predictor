@@ -1,58 +1,76 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+body{
+margin:0;
+padding:0;
+background:#0d1117;
+color:white;
+font-family:Arial,sans-serif;
 }
 
-body {
-    margin: 0;
-    background: #111827;
-    color: white;
+.topbar{
+background:#161b22;
+padding:20px;
+text-align:center;
+border-bottom:2px solid #00ff88;
 }
 
-.topbar {
-    text-align: center;
-    padding: 25px;
-    background: #1f2937;
+.topbar h1{
+margin:0;
+color:#00ff88;
 }
 
-.topbar h1 {
-    margin: 0;
-    font-size: 32px;
+main{
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
 
-main {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+.card{
+background:#161b22;
+margin-bottom:20px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,255,136,.2);
 }
 
-.card {
-    background: #1f2937;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 15px;
+table{
+width:100%;
+border-collapse:collapse;
 }
 
-h2 {
-    color: #facc15;
+th{
+background:#00ff88;
+color:#000;
+padding:12px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+td{
+padding:10px;
+border-bottom:1px solid #333;
+text-align:center;
 }
 
-th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #374151;
+tr:hover{
+background:#222;
 }
 
-th {
-    background: #374151;
+#pronostico{
+font-size:22px;
+font-weight:bold;
+text-align:center;
 }
 
-span {
-    color: #22c55e;
-    font-weight: bold;
+h2{
+color:#00ff88;
+}
+
+@media(max-width:768px){
+
+table{
+font-size:12px;
+}
+
+th,td{
+padding:6px;
+}
+
 }
