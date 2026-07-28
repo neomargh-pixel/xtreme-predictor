@@ -1,44 +1,62 @@
 function analizarResultados() {
 
     let estadisticas = [];
+    let hoy = new Date();
 
     animales.forEach(animal => {
 
-        let salidas = resultados.filter(r => r.animal === animal).length;
+        let historial = resultados.filter(r => r.animal === animal);
 
-        let ultimaSalida = resultados
-            .filter(r => r.animal === animal)
-            .sort((a,b)=> new Date(b.fecha)-new Date(a.fecha))[0];
+        let salidas = historial.length;
+
+        let ultimaSalida = historial.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha))[0];
 
         let diasSinSalir = 30;
 
         if (ultimaSalida) {
-            let fecha = new Date(ultimaSalida.fecha);
-            let hoy = new Date();
             diasSinSalir = Math.floor(
-                (hoy - fecha) / (1000 * 60 * 60 * 24)
+                (hoy - new Date(ultimaSalida.fecha)) /
+                (1000 * 60 * 60 * 24)
             );
         }
 
+        // Índice XTREME
+        let indice = 0;
+
+        indice += Math.min(salidas * 10, 40);
+        indice += Math.min(diasSinSalir, 30);
+
+        if (salidas >= 5) {
+            indice += 20;
+        } else if (salidas >= 3) {
+            indice += 10;
+        }
+
+        indice += 10;
+
+        if (indice > 100) indice = 100;
+
+        let tendencia = "🔴 Baja";
+
+        if (indice >= 90)
+            tendencia = "🔥 Muy Alta";
+        else if (indice >= 75)
+            tendencia = "🟢 Alta";
+        else if (indice >= 60)
+            tendencia = "🟡 Media";
+
         estadisticas.push({
-            animal: animal,
-            salidas: salidas,
-            dias: diasSinSalir
+            animal,
+            salidas,
+            dias: diasSinSalir,
+            indice,
+            tendencia
         });
 
     });
 
-
-    estadisticas.sort((a,b)=>{
-
-        if(b.salidas !== a.salidas){
-            return b.salidas - a.salidas;
-        }
-
-        return b.dias - a.dias;
-
-    });
-
+    estadisticas.sort((a,b)=>b.indice-a.indice);
 
     return estadisticas;
+
 }
