@@ -1,41 +1,39 @@
 async function cargarResultados() {
-    try {
-        const respuesta = await fetch("resultados.json");
-        const datos = await respuesta.json();
 
-        resultados.length = 0;
-        datos.forEach(item => resultados.push(item));
+    const respuesta = await fetch("resultados.json");
+    const datos = await respuesta.json();
 
-        const analisis = analizarResultados();
+    resultados.length = 0;
 
-        if (analisis.length === 0) {
-            document.getElementById("pronostico").innerHTML = "No hay datos.";
-            return;
-        }
+    datos.forEach(item => resultados.push(item));
 
-        document.getElementById("pronostico").innerHTML =
-            "🔥 Mayor tendencia: " + analisis[0].animal;
+    let analisis = analizarResultados();
 
-        document.getElementById("estadistica").innerHTML =
-            "Animales analizados: " + analisis.length;
+    document.getElementById("pronostico").innerHTML =
+        `
+        <h3>${analisis[0].animal}</h3>
+        <p>🔥 Índice XTREME: ${analisis[0].indice}/100</p>
+        <p>${analisis[0].tendencia}</p>
+        `;
 
-        let tabla = "";
+    document.getElementById("estadistica").innerHTML =
+        "Animales analizados: " + analisis.length;
 
-        analisis.slice(0, 10).forEach((a, i) => {
-            tabla += `
-            <tr>
-                <td>${i + 1}. ${a.animal}</td>
-                <td>${a.salidas}</td>
-                <td>${a.dias}</td>
-            </tr>`;
-        });
+    let tabla = "";
 
-        document.getElementById("top10").innerHTML = tabla;
+    analisis.slice(0,10).forEach((a,i)=>{
 
-    } catch (error) {
-        document.getElementById("pronostico").innerHTML =
-            "❌ Error: " + error.message;
-    }
+        tabla += `
+        <tr>
+            <td>${i+1}. ${a.animal}</td>
+            <td>${a.salidas}</td>
+            <td>${a.dias}</td>
+        </tr>`;
+
+    });
+
+    document.getElementById("top10").innerHTML = tabla;
+
 }
 
-window.onload = cargarResultados;
+cargarResultados();
